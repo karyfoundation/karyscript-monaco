@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/karyfoundation/karyscript-monaco/issues"
   },
-  "homepage": "https://github.com/karyfoundation/karyscript-monaco#readme"
+  "homepage": "https://github.com/karyfoundation/karyscript-monaco#readme",
+  "dependencies": {
+    "monaco-editor": "^0.8.3"
+  }
 }
