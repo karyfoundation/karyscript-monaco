@@ -1,0 +1,24 @@
+{
+  "name": "karyscript-monaco",
+  "version": "0.0.1",
+  "description": "Monaco Editor crafted for KaryScript with Kary Foundation's Theme and Kary Comment Generators Inside!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karyfoundation/karyscript-monaco.git"
+  },
+  "keywords": [
+    "karyscript",
+    "karyfoundation",
+    "monaco-editor"
+  ],
+  "author": "Kary Foundation, Inc",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/karyfoundation/karyscript-monaco/issues"
+  },
+  "homepage": "https://github.com/karyfoundation/karyscript-monaco#readme"
+}
