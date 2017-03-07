@@ -13,14 +13,14 @@
 // ─── REQUIRE ────────────────────────────────────────────────────────────────────
 //
 
-    fix element = (document/getElementById "container")
-    fix settings = [
+    @element = (document/getElementById "container")
+    @settings = [
         value:      "var x = 10"
         language:   "javascript"
     ]
 
     @procedure = do
-        def editor = (monaco/editor/create element settings)
+        def editor = (monaco/editor/create @element @settings)
     end
 
     @path = ['vs/editor/editor.main']
