@@ -21,9 +21,9 @@
             [ token: 'keyword', foreground: 'B12CA8' ]
             [ token: 'string', foreground: '3C8412' ]
             [ token: 'comment', foreground: 'C7C4C2' ]
-            [ token: 'holder', foreground: 'C18000' ]
-            [ token: 'identifier', foreground: '348ACB' ]
-            [ token: 'address', foreground: 'CD4602' ]
+            [ token: 'holder', foreground: 'A56416' ]
+            [ token: 'identifier', foreground: '3778B7' ]
+            [ token: 'address', foreground: 'C94824' ]
             [ token: 'number', foreground: '348ACB' ]
         ]
     ]
@@ -34,10 +34,12 @@
 
     @element = (document/getElementById "container")
     @settings = [
-        value:      "def x = 10"
-        language:   "karyscript"
-        theme:      "karyfoundation"
-        fontSize:   14
+        value:          "def x = 10"
+        language:       "karyscript"
+        theme:          "karyfoundation"
+        fontSize:       14
+        fontFamily:     "Hasklig-Semibold"
+        lineHeight:     24
     ]
 
     @procedure = do
