@@ -35,9 +35,18 @@
     def collection = 
         | label         | insertText                                            |
         |---------------|-------------------------------------------------------|
-        | "def"         | 'def {{name}}:\n\t{{}}\nend'                          |
+        | "def func"    | 'def {{name}}:\n\t{{}}\nend'                          |
+        | "async func"  | 'async {{name}}:\n\t{{}}\nend'                        |
         | "if"          | 'if {{condition}}:\n\t{{}}\nend'                      |
         | "if else"     | 'if {{condition}}:\n\t{{}}\nelse\n\t{{}}\nend'        |
+        | "unless"      | 'unless {{condition}}:\n\t{{}}\nend'                  |
+        | "unless else" | 'unless {{condition}}:\n\t{{}}\nelse\n\t{{}}\nend'    |
+        | "for up"      | 'for {{start}} up to {{end}}:\n\t{{}}\nend'           |
+        | "for down"    | 'for {{start}} down to {{end}}:\n\t{{}}\nend'         |
+        | "for of"      | 'for {{x}} of {{y}}:\n\t{{}}\nend'                    |
+        | "for in"      | 'for {{x}} in {{y}}:\n\t{{}}\nend'                    |
+        | "for of when" | 'for {{x}} of {{y}} when {{condition}}:\n\t{{}}\nend' |
+        | "for in when" | 'for {{x}} in {{y}} when {{condition}}:\n\t{{}}\nend' |
 
 //
 // ─── REQUIRE ────────────────────────────────────────────────────────────────────
