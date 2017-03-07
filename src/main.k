@@ -29,6 +29,17 @@
     ]
 
 //
+// ─── COMPLETION DATA ────────────────────────────────────────────────────────────
+//
+
+    def collection = 
+        | label         | insertText                                            |
+        |---------------|-------------------------------------------------------|
+        | "def"         | 'def {{name}}:\n\t{{}}\nend'                          |
+        | "if"          | 'if {{condition}}:\n\t{{}}\nend'                      |
+        | "if else"     | 'if {{condition}}:\n\t{{}}\nelse\n\t{{}}\nend'        |
+
+//
 // ─── REQUIRE ────────────────────────────────────────────────────────────────────
 //
 
@@ -50,6 +61,21 @@
         // theme
         (monaco/editor/defineTheme "karyfoundation" theme)
 
+        // completion
+        collection = (collection/map to x do
+                        x/kind = monaco/languages/CompletionItemKind/Keyword
+                        return x 
+                      end)
+
+        fix completion-provider = [
+            provideCompletionItems: do
+                return collection
+            end
+        ]
+
+        (monaco/languages/registerCompletionItemProvider 'karyscript' completion-provider)
+
+        // done generating the repo
         def editor = (monaco/editor/create @element @settings)
     end
 
