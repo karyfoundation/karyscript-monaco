@@ -13,7 +13,7 @@
 // ─── THEME ──────────────────────────────────────────────────────────────────────
 //
 
-    fix theme = [
+    object theme:
         base: 'vs'
 	    inherit: off
         foreground: 'f4f4f4'
@@ -26,9 +26,9 @@
                 | 'identifier'      | '3778B7'      |
                 | 'address'         | 'A56416'      |
                 | 'number'          | '348ACB'      |
-                | 'type.identifier' | '3C8412'      |
+                | 'type.identifier' | 'A56416'      |
                 | 'function.name'   | 'C94824'      |
-    ]
+    end
 
 //
 // ─── COMPLETION DATA ────────────────────────────────────────────────────────────
@@ -79,11 +79,11 @@
                         return x 
                       end)
 
-        fix completion-provider = [
+        object completion-provider:
             provideCompletionItems: do
                 return collection
             end
-        ]
+        end
 
         (monaco/languages/registerCompletionItemProvider 'karyscript' completion-provider)
 
