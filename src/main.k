@@ -4,9 +4,7 @@
 //
 
     (require/config [
-        paths: [
-            vs: '../node_modules/monaco-editor/min/vs'
-        ]
+        paths: [ vs: '../node_modules/monaco-editor/min/vs' ]
     ])
 
 //
@@ -67,7 +65,7 @@
 
     @procedure = do
         // language
-        (monaco/languages/register [id: 'karyscript' ])
+        (monaco/languages/register [ id: 'karyscript' ])
         (monaco/languages/setMonarchTokensProvider "karyscript" karyscript-grammar)
 
         // theme
@@ -76,7 +74,7 @@
         // completion
         collection = (collection/map to x do
                         x/kind = monaco/languages/CompletionItemKind/Keyword
-                        return x 
+                        return x
                       end)
 
         object completion-provider:
