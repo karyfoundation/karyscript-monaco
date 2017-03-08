@@ -25,6 +25,7 @@
             [ token: 'identifier', foreground: '3778B7' ]
             [ token: 'address', foreground: 'C94824' ]
             [ token: 'number', foreground: '348ACB' ]
+            [ token: 'type.identifier', foreground: 'A56416' ]
         ]
     ]
 
