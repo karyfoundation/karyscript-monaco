@@ -14,10 +14,10 @@
     object theme:
         base:       'vs'
 	    inherit:    off
-        foreground: 'f4f4f4'
+        foreground: 'f7f7f7'
 	    rules:      | token             | foreground    |
                     |-------------------|---------------|
-                    | 'keyword'         | 'B12CA8'      |
+                    | 'keyword'         | 'B052A1'      |
                     | 'string'          | '3C8412'      |
                     | 'comment'         | 'cccccc'      |
                     | 'holder'          | 'A56416'      |
@@ -32,7 +32,7 @@
 // ─── COMPLETION DATA ────────────────────────────────────────────────────────────
 //
 
-    def collection = 
+    mut collection = 
         | label         | insertText                                            |
         |---------------|-------------------------------------------------------|
         | "def func"    | 'def {{name}}:\n\t{{}}\nend'                          |
@@ -86,7 +86,7 @@
         (monaco/languages/registerCompletionItemProvider 'karyscript' completion-provider)
 
         // done generating the repo
-        def editor = (monaco/editor/create @element @settings)
+        mut editor = (monaco/editor/create @element @settings)
     end
 
     @path = ['vs/editor/editor.main']

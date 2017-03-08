@@ -12,7 +12,7 @@ karyscript_grammar = {
     'while', 'continue', 'debugger', 'delete', 'do', 'export', 'extends', 'if', 'else',
     'switch', 'case', 'default', 'try', 'catch', 'finally', 'NaN', 'null', 'undefined',
     'typeof', 'instanceof', 'new', 'return', 'super', 'throw', 'void', 'with', 'yield',
-    'async', 'object', 'array'
+    'async', 'object', 'array', 'mut'
   ],
 
   // define our own brackets as '<' and '>' do not match in javascript
