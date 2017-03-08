@@ -12,20 +12,20 @@
 //
 
     object theme:
-        base: 'vs'
-	    inherit: off
+        base:       'vs'
+	    inherit:    off
         foreground: 'f4f4f4'
-	    rules:  | token             | foreground    |
-                |-------------------|---------------|
-                | 'keyword'         | 'B12CA8'      |
-                | 'string'          | '3C8412'      |
-                | 'comment'         | 'cccccc'      |
-                | 'holder'          | 'A56416'      |
-                | 'identifier'      | '3778B7'      |
-                | 'address'         | 'A56416'      |
-                | 'number'          | '348ACB'      |
-                | 'type.identifier' | 'A56416'      |
-                | 'function.name'   | 'C94824'      |
+	    rules:      | token             | foreground    |
+                    |-------------------|---------------|
+                    | 'keyword'         | 'B12CA8'      |
+                    | 'string'          | '3C8412'      |
+                    | 'comment'         | 'cccccc'      |
+                    | 'holder'          | 'A56416'      |
+                    | 'identifier'      | '3778B7'      |
+                    | 'address'         | 'A56416'      |
+                    | 'number'          | '348ACB'      |
+                    | 'type.identifier' | 'A56416'      |
+                    | 'function.name'   | 'C94824'      |
     end
 
 //
