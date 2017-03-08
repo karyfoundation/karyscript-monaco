@@ -1,33 +1,45 @@
 
-<style>
-    h2 {
-        font-family: 'Avenir';
-        padding: 20pt 0 10pt 0;
-    }
-    main {
-        max-width: 800px;
-        margin: auto;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>KaryScript Monaco</title>
+    <style>
+        h2 {
+            font-family: 'Avenir';
+            padding: 20pt 0 10pt 0;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+        }
 
-    .monaco-editor, .monaco-editor-background {
-        background: #F7F7F7 !important;
-    }
+        .monaco-editor, .monaco-editor-background {
+            background: #F7F7F7 !important;
+        }
 
-    .monaco-editor .line-numbers {
-        color: ccc !important;
-    }
+        .monaco-editor .line-numbers {
+            color: ccc !important;
+        }
 
-    /* Cursor */
-    .monaco-editor .cursor {
-        background: #00BBEC !important;
-    }
-</style>
+        /* Cursor */
+        .monaco-editor .cursor {
+            background: #00BBEC !important;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h2>Monaco Editor with KaryScript support</h2>
+        <div id="container" style="width:100%; height:500px; border:1px solid rgba(0, 0, 0, 0.1)"></div>
+    </main>
+    
+    <script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
+    <script src="../bin/karyscript.js"></script>
+    <script src="../bin/main.js"></script>
+</body>
+</html>
 
-<main>
-    <h2>Monaco Editor with KaryScript support</h2>
-    <div id="container" style="width:100%; height:500px; border:1px solid rgba(0, 0, 0, 0.1)"></div>
-</main>
 
-<script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
-<script src="../bin/karyscript.js"></script>
-<script src="../bin/main.js"></script>
