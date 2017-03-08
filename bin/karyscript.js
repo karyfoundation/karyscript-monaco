@@ -12,7 +12,7 @@ karyscript_grammar = {
     'while', 'continue', 'debugger', 'delete', 'do', 'export', 'extends', 'if', 'else',
     'switch', 'case', 'default', 'try', 'catch', 'finally', 'NaN', 'null', 'undefined',
     'typeof', 'instanceof', 'new', 'return', 'super', 'throw', 'void', 'with', 'yield',
-    'async'
+    'async', 'object', 'array'
   ],
 
   // define our own brackets as '<' and '>' do not match in javascript
@@ -30,22 +30,20 @@ karyscript_grammar = {
   regexpctl: /[(){}\[\]\$\^|\-*+?\.]/,
   regexpesc: /\\(?:[bBdDfnrstvwWn0\\\/]|@regexpctl|c[A-Z]|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4})/,
 
-
-
   tokenizer: {
     root: [
 
       // address
-      [/[a-z_$][\w\-$]*(\/[a-z_$][\w-$]*)+/, 'address'],
+      [/([a-z_$][\w\-$]*\/)+/, 'address'],
 
       // identifier
-      [/[a-z_$][\w-$]*/, { cases: { '@keywords' : 'keyword',
+      [/[a-z_$][\w-$]*/, { cases: { '@keywords' : { cases: { 'def': { token: 'keyword', next: '@functionName' }
+                                                  , '@default': 'keyword' }},
                                     '@default': 'identifier' } }],
       [/[A-Z][\w-\$]*/, 'type.identifier' ],  // to show class names nicely
 
       // holders
       [/@[a-z_$][\w-$]*/, 'holder'],
-
 
       // whitespace
       { include: '@whitespace' },
@@ -57,6 +55,14 @@ karyscript_grammar = {
       // delimiters
       [/[{}\[\]]/, '@brackets'],
       [/[,\/]/, 'delimiter'],
+
+      [ /\(/, {
+        token: 'bracket.parenthesis', bracket: '@open', next: '@functionName'
+      }],
+
+      [ /\)/, {
+        token: 'bracket.parenthesis', bracket: '@close'
+      }],
 
       // numbers
       [/\d+\.\d*(@exponent)?/, 'number.float'],
@@ -73,6 +79,7 @@ karyscript_grammar = {
       [/'/,  'string', '@string.\'' ],
     ],
 
+    functionName: [ [ /[a-z_$][\w-$\/]*/, 'function.name', '@pop'] ],
 
     whitespace: [
       [/[ \t\r\n]+/, 'white'],

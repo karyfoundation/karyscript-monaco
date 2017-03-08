@@ -17,16 +17,17 @@
         base: 'vs'
 	    inherit: off
         foreground: 'f4f4f4'
-	    rules: [
-            [ token: 'keyword', foreground: 'B12CA8' ]
-            [ token: 'string', foreground: '3C8412' ]
-            [ token: 'comment', foreground: 'C7C4C2' ]
-            [ token: 'holder', foreground: 'A56416' ]
-            [ token: 'identifier', foreground: '3778B7' ]
-            [ token: 'address', foreground: 'C94824' ]
-            [ token: 'number', foreground: '348ACB' ]
-            [ token: 'type.identifier', foreground: 'A56416' ]
-        ]
+	    rules:  | token             | foreground    |
+                |-------------------|---------------|
+                | 'keyword'         | 'B12CA8'      |
+                | 'string'          | '3C8412'      |
+                | 'comment'         | 'cccccc'      |
+                | 'holder'          | 'A56416'      |
+                | 'identifier'      | '3778B7'      |
+                | 'address'         | 'A56416'      |
+                | 'number'          | '348ACB'      |
+                | 'type.identifier' | '3C8412'      |
+                | 'function.name'   | 'C94824'      |
     ]
 
 //
@@ -60,6 +61,7 @@
         theme:          "karyfoundation"
         fontSize:       14
         fontFamily:     "Hasklig-Semibold"
+        fontLigatures:  on
         lineHeight:     24
     ]
 
