@@ -34,7 +34,7 @@ karyscript_grammar = {
     root: [
 
       // address
-      [/([a-z_$][\w\-$]*\/)+/, 'address'],
+      [/([a-z_$@][\w\-$]*\/)+/, 'address'],
 
       // identifier
       [/[a-z_$][\w-$]*/, { cases: { '@keywords' : { cases: { 'def': { token: 'keyword', next: '@functionName' }
