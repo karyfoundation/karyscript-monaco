@@ -1,5 +1,11 @@
 
 //
+// ─── INFORMATION ────────────────────────────────────────────────────────────────
+//
+
+    mut editor
+
+//
 // ─── CONFIGURING ────────────────────────────────────────────────────────────────
 //
 
@@ -86,11 +92,21 @@
         (monaco/languages/registerCompletionItemProvider 'karyscript' completion-provider)
 
         // done generating the repo
-        mut editor = (monaco/editor/create @element @settings)
+        editor = (monaco/editor/create @element @settings)
     end
 
     @path = ['vs/editor/editor.main']
     (require @path @procedure)
+
+//
+// ─── ON WINDOW RESIZE ───────────────────────────────────────────────────────────
+//
+
+    window/onresize = do
+        if editor != undefined:
+            (editor/layout)
+        end
+    end
 
 // ────────────────────────────────────────────────────────────────────────────────
 
