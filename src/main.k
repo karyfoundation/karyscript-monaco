@@ -103,7 +103,7 @@
 //
 
     window/onresize = do
-        if editor != undefined:
+        if editor != ufo:
             (editor/layout)
         end
     end
