@@ -66,7 +66,7 @@
         fontSize:       14
         fontFamily:     "Hasklig-Semibold"
         fontLigatures:  on
-        lineHeight:     24
+        lineHeight:     28
     ]
 
     @procedure = do
