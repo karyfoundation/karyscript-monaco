@@ -60,7 +60,7 @@
 
     @element = (document/getElementById "container")
     @settings = [
-        value:          "def x = 10"
+        value:          ""
         language:       "karyscript"
         theme:          "karyfoundation"
         fontSize:       14
