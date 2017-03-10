@@ -93,6 +93,8 @@
 
         // done generating the repo
         editor = (monaco/editor/create @element @settings)
+
+        (KaryFoundation/Monaco/AddSupportingMonacoTools editor)
     end
 
     @path = ['vs/editor/editor.main']
