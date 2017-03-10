@@ -4,6 +4,7 @@
   "description": "Monaco Editor crafted for KaryScript with Kary Foundation's Theme and Kary Comment Generators Inside!",
   "main": "index.js",
   "scripts": {
+    "build": "kc && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
