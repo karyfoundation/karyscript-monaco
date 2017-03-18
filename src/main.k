@@ -1,114 +1,126 @@
 
-//
-// ─── INFORMATION ────────────────────────────────────────────────────────────────
-//
+zone KaryScriptMonaco:
 
-    mut editor
+    //
+    // ─── INFORMATION ────────────────────────────────────────────────────────────────
+    //
 
-//
-// ─── CONFIGURING ────────────────────────────────────────────────────────────────
-//
+        mut editor
 
-    (require/config [
-        paths: [ vs: '../node_modules/monaco-editor/min/vs' ]
-    ])
+    //
+    // ─── CONFIGURING ────────────────────────────────────────────────────────────────
+    //
 
-//
-// ─── THEME ──────────────────────────────────────────────────────────────────────
-//
+        (require/config [
+            paths: [ vs: '../node_modules/monaco-editor/min/vs' ]
+        ])
 
-    object theme:
-        base:       'vs'
-	    inherit:    off
-        foreground: 'f7f7f7'
-	    rules:      | token             | foreground    |
-                    |-------------------|---------------|
-                    | 'keyword'         | 'B052A1'      |
-                    | 'string'          | '3C8412'      |
-                    | 'comment'         | 'cccccc'      |
-                    | 'holder'          | 'A56416'      |
-                    | 'identifier'      | '3778B7'      |
-                    | 'address'         | 'A56416'      |
-                    | 'number'          | '348ACB'      |
-                    | 'type.identifier' | 'A56416'      |
-                    | 'function.name'   | 'C94824'      |
-    end
+    //
+    // ─── THEME ──────────────────────────────────────────────────────────────────────
+    //
 
-//
-// ─── COMPLETION DATA ────────────────────────────────────────────────────────────
-//
+        object theme:
+            base:       'vs'
+            inherit:    off
+            foreground: 'f7f7f7'
+            rules:      | token             | foreground    |
+                        |-------------------|---------------|
+                        | 'keyword'         | 'B052A1'      |
+                        | 'string'          | '3C8412'      |
+                        | 'comment'         | 'cccccc'      |
+                        | 'holder'          | 'A56416'      |
+                        | 'identifier'      | '3778B7'      |
+                        | 'address'         | 'A56416'      |
+                        | 'number'          | '348ACB'      |
+                        | 'type.identifier' | 'A56416'      |
+                        | 'function.name'   | 'C94824'      |
+        end
 
-    mut collection = 
-        | label         | insertText                                            |
-        |---------------|-------------------------------------------------------|
-        | "def func"    | 'def {{name}}:\n\t{{}}\nend'                          |
-        | "async func"  | 'async {{name}}:\n\t{{}}\nend'                        |
-        | "if"          | 'if {{condition}}:\n\t{{}}\nend'                      |
-        | "if else"     | 'if {{condition}}:\n\t{{}}\nelse\n\t{{}}\nend'        |
-        | "unless"      | 'unless {{condition}}:\n\t{{}}\nend'                  |
-        | "unless else" | 'unless {{condition}}:\n\t{{}}\nelse\n\t{{}}\nend'    |
-        | "for up"      | 'for {{start}} up to {{end}}:\n\t{{}}\nend'           |
-        | "for down"    | 'for {{start}} down to {{end}}:\n\t{{}}\nend'         |
-        | "for of"      | 'for {{x}} of {{y}}:\n\t{{}}\nend'                    |
-        | "for in"      | 'for {{x}} in {{y}}:\n\t{{}}\nend'                    |
-        | "for of when" | 'for {{x}} of {{y}} when {{condition}}:\n\t{{}}\nend' |
-        | "for in when" | 'for {{x}} in {{y}} when {{condition}}:\n\t{{}}\nend' |
+    //
+    // ─── COMPLETION DATA ────────────────────────────────────────────────────────────
+    //
 
-//
-// ─── REQUIRE ────────────────────────────────────────────────────────────────────
-//
+        mut collection = 
+            | label         | insertText                                            |
+            |---------------|-------------------------------------------------------|
+            | "def func"    | 'def {{name}}:\n\t{{}}\nend'                          |
+            | "async func"  | 'async {{name}}:\n\t{{}}\nend'                        |
+            | "if"          | 'if {{condition}}:\n\t{{}}\nend'                      |
+            | "if else"     | 'if {{condition}}:\n\t{{}}\nelse\n\t{{}}\nend'        |
+            | "unless"      | 'unless {{condition}}:\n\t{{}}\nend'                  |
+            | "unless else" | 'unless {{condition}}:\n\t{{}}\nelse\n\t{{}}\nend'    |
+            | "for up"      | 'for {{start}} up to {{end}}:\n\t{{}}\nend'           |
+            | "for down"    | 'for {{start}} down to {{end}}:\n\t{{}}\nend'         |
+            | "for of"      | 'for {{x}} of {{y}}:\n\t{{}}\nend'                    |
+            | "for in"      | 'for {{x}} in {{y}}:\n\t{{}}\nend'                    |
+            | "for of when" | 'for {{x}} of {{y}} when {{condition}}:\n\t{{}}\nend' |
+            | "for in when" | 'for {{x}} in {{y}} when {{condition}}:\n\t{{}}\nend' |
 
-    @element = (document/getElementById "container")
-    @settings = [
-        value:          ""
-        language:       "karyscript"
-        theme:          "karyfoundation"
-        fontSize:       14
-        fontFamily:     "Hasklig-Semibold"
-        fontLigatures:  on
-        lineHeight:     28
-    ]
+    //
+    // ─── REQUIRE ────────────────────────────────────────────────────────────────────
+    //
 
-    @procedure = do
-        // language
-        (monaco/languages/register [ id: 'karyscript' ])
-        (monaco/languages/setMonarchTokensProvider "karyscript" karyscript-grammar)
+        @element = (document/getElementById "container")
+        @settings = [
+            value:          ""
+            language:       "karyscript"
+            theme:          "karyfoundation"
+            fontSize:       14
+            fontFamily:     "Hasklig-Semibold"
+            fontLigatures:  on
+            lineHeight:     28
+        ]
 
-        // theme
-        (monaco/editor/defineTheme "karyfoundation" theme)
+        @procedure = do
+            // language
+            (monaco/languages/register [ id: 'karyscript' ])
+            (monaco/languages/setMonarchTokensProvider "karyscript" karyscript-grammar)
 
-        // completion
-        collection = (collection/map to x do
-                        x/kind = monaco/languages/CompletionItemKind/Keyword
-                        return x
-                      end)
+            // theme
+            (monaco/editor/defineTheme "karyfoundation" theme)
 
-        object completion-provider:
-            provideCompletionItems: do
-                return collection
+            // completion
+            collection = (collection/map to x do
+                            x/kind = monaco/languages/CompletionItemKind/Keyword
+                            return x
+                        end)
+
+            object completion-provider:
+                provideCompletionItems: do
+                    return collection
+                end
+            end
+
+            (monaco/languages/registerCompletionItemProvider 'karyscript' completion-provider)
+
+            // done generating the repo
+            editor = (monaco/editor/create @element @settings)
+
+            (KaryFoundation/Monaco/AddSupportingMonacoTools editor)
+        end
+
+
+    //
+    // ─── INITIALIZER ────────────────────────────────────────────────────────────────
+    //
+
+        usable def Init:
+            @path = ['vs/editor/editor.main']
+            (require @path @procedure)
+
+            return editor
+        end
+
+    //
+    // ─── ON WINDOW RESIZE ───────────────────────────────────────────────────────────
+    //
+
+        window/onresize = do
+            if editor != ufo:
+                (editor/layout)
             end
         end
 
-        (monaco/languages/registerCompletionItemProvider 'karyscript' completion-provider)
+    // ────────────────────────────────────────────────────────────────────────────────
 
-        // done generating the repo
-        editor = (monaco/editor/create @element @settings)
-
-        (KaryFoundation/Monaco/AddSupportingMonacoTools editor)
-    end
-
-    @path = ['vs/editor/editor.main']
-    (require @path @procedure)
-
-//
-// ─── ON WINDOW RESIZE ───────────────────────────────────────────────────────────
-//
-
-    window/onresize = do
-        if editor != ufo:
-            (editor/layout)
-        end
-    end
-
-// ────────────────────────────────────────────────────────────────────────────────
-
+end
