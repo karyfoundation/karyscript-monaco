@@ -1,4 +1,5 @@
 
+
 zone KaryScriptMonaco:
 
     //
@@ -12,7 +13,9 @@ zone KaryScriptMonaco:
     //
 
         (require/config [
-            paths: [ vs: '../node_modules/monaco-editor/min/vs' ]
+            paths: [
+                vs: '../node_modules/monaco-editor/min/vs'
+            ]
         ])
 
     //
@@ -105,22 +108,28 @@ zone KaryScriptMonaco:
     //
 
         usable def Init:
+            // setup
             @path = ['vs/editor/editor.main']
             (require @path @procedure)
 
+            // a simple event
+            (setup-events)
+
+            // and done, giving user our pointer
             return editor
         end
 
     //
-    // ─── ON WINDOW RESIZE ───────────────────────────────────────────────────────────
+    // ─── SET EVENTS ─────────────────────────────────────────────────────────────────
     //
 
-        window/onresize = do
-            if editor != ufo:
-                (editor/layout)
+        def setup-events:           
+            window/onresize = do
+                if editor != ufo:
+                    (editor/layout)
+                end
             end
         end
-
     // ────────────────────────────────────────────────────────────────────────────────
 
 end
