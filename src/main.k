@@ -60,10 +60,10 @@ zone KaryScriptMonaco:
             | "for in when" | 'for {{x}} in {{y}} when {{condition}}:\n\t{{}}\nend' |
 
     //
-    // ─── REQUIRE ────────────────────────────────────────────────────────────────────
+    // ─── INITIALIZER ────────────────────────────────────────────────────────────────
     //
 
-        @element = (document/getElementById "container")
+        // holders
         @settings = [
             value:          ""
             language:       "karyscript"
@@ -97,17 +97,14 @@ zone KaryScriptMonaco:
             (monaco/languages/registerCompletionItemProvider 'karyscript' completion-provider)
 
             // done generating the repo
+            @element = (document/getElementById containerId)
             editor = (monaco/editor/create @element @settings)
 
             (KaryFoundation/Monaco/AddSupportingMonacoTools editor)
         end
 
-
-    //
-    // ─── INITIALIZER ────────────────────────────────────────────────────────────────
-    //
-
-        usable def Init:
+        // body
+        usable def Init containerId:
             // setup
             @path = ['vs/editor/editor.main']
             (require @path @procedure)
