@@ -37,7 +37,7 @@ zone KaryScriptMonaco:
                         | 'number'          | '348ACB'      |
                         | 'type.identifier' | 'A56416'      |
                         | 'function.name'   | 'C94824'      |
-        end
+            end
 
     //
     // ─── COMPLETION DATA ────────────────────────────────────────────────────────────
