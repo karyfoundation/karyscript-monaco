@@ -83,7 +83,7 @@ zone KaryScriptMonaco:
             (monaco/editor/defineTheme "karyfoundation" theme)
 
             // completion
-            collection = (collection/map to x do
+            collection /= (map to x do
                             x/kind = monaco/languages/CompletionItemKind/Keyword
                             return x
                         end)
