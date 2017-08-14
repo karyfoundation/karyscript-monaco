@@ -14,7 +14,7 @@ zone KaryScriptMonaco:
 
         (require/config [
             paths: [
-                vs: '../node_modules/monaco-editor/min/vs'
+                vs: './node_modules/monaco-editor/min/vs'
             ]
         ])
 
@@ -120,7 +120,7 @@ zone KaryScriptMonaco:
     // ─── SET EVENTS ─────────────────────────────────────────────────────────────────
     //
 
-        def setup-events:           
+        def setup-events:    
             window/onresize = do
                 if editor != ufo:
                     (editor/layout)
