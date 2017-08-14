@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/karyfoundation/karyscript-monaco#readme",
   "dependencies": {
-    "monaco-editor": "^0.8.3"
+    "@types/react-dom": "^15.5.1",
+    "monaco-editor": "^0.8.3",
+    "react-dom": "^15.6.1"
   }
 }
